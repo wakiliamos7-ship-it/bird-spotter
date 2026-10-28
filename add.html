@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Sighting - Bird Spotter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="add.html">Add Sighting</a>
+    <a href="sightings.html">My Sightings</a>
+    <a href="summary.html">Summary</a>
+  </nav>
+
+  <main>
+    <h1>Add a Sighting</h1>
+    <form id="sighting-form">
+      <label for="species">Species</label>
+      <input type="text" id="species" required>
+
+      <label for="location">Location</label>
+      <input type="text" id="location" required>
+
+      <label for="date">Date</label>
+      <input type="date" id="date" required>
+
+      <label for="notes">Notes</label>
+      <textarea id="notes" rows="3"></textarea>
+
+      <button type="submit">Save Sighting</button>
+    </form>
+    <p id="message"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

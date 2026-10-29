@@ -80,3 +80,11 @@ tr:hover td {
   max-width: 400px;
   box-sizing: border-box;
 }
+td button {
+  background-color: #c62828;
+  padding: 6px 10px;
+}
+
+td button:hover {
+  background-color: #8e0000;
+}

@@ -34,9 +34,14 @@ if (form) {
 }
 // Show sightings in the table (only exists on sightings.html)
 const tableBody = document.getElementById("sightings-body");
+const searchBox = document.getElementById("search");
 
 function showSightings() {
-  const sightings = getSightings();
+    const searchText = searchBox ? searchBox.value.toLowerCase().trim() : "";
+  const sightings = getSightings().filter(function (sighting) {
+    return sighting.species.toLowerCase().includes(searchText);
+  });
+  
   tableBody.innerHTML = "";
 
   if (sightings.length === 0) {
@@ -79,4 +84,7 @@ function deleteSighting(id) {
 }
 if (tableBody) {
   showSightings();
+  if (searchBox) {
+    searchBox.addEventListener("input", showSightings);
+  } 
 }

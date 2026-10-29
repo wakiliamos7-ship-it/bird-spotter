@@ -88,3 +88,15 @@ td button {
 td button:hover {
   background-color: #8e0000;
 }
+@media (max-width: 600px) {
+  nav a {
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  th,
+  td {
+    padding: 6px;
+    font-size: 0.9rem;
+  }
+}

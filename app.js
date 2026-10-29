@@ -88,3 +88,42 @@ if (tableBody) {
     searchBox.addEventListener("input", showSightings);
   } 
 }
+// Show how many times each species was seen (only exists on summary.html)
+const summaryBody = document.getElementById("summary-body");
+
+function showSummary() {
+  const sightings = getSightings();
+  const counts = {};
+
+  sightings.forEach(function (sighting) {
+    const name = sighting.species;
+    counts[name] = (counts[name] || 0) + 1;
+  });
+
+  summaryBody.innerHTML = "";
+
+  const names = Object.keys(counts);
+  if (names.length === 0) {
+    const row = document.createElement("tr");
+    const cell = document.createElement("td");
+    cell.colSpan = 2;
+    cell.textContent = "No sightings yet.";
+    row.appendChild(cell);
+    summaryBody.appendChild(row);
+    return;
+  }
+
+  names.forEach(function (name) {
+    const row = document.createElement("tr");
+    [name, counts[name]].forEach(function (value) {
+      const cell = document.createElement("td");
+      cell.textContent = value;
+      row.appendChild(cell);
+    });
+    summaryBody.appendChild(row);
+  });
+}
+
+if (summaryBody) {
+  showSummary();
+}

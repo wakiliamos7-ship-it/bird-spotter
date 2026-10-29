@@ -42,7 +42,7 @@ function showSightings() {
   if (sightings.length === 0) {
     const row = document.createElement("tr");
     const cell = document.createElement("td");
-    cell.colSpan = 4;
+    cell.colSpan = 5;
     cell.textContent = "No sightings yet. Add one on the Add Sighting page.";
     row.appendChild(cell);
     tableBody.appendChild(row);
@@ -56,10 +56,27 @@ function showSightings() {
       cell.textContent = value;
       row.appendChild(cell);
     });
+
+    const actionCell = document.createElement("td");
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", function () {
+      deleteSighting(sighting.id);
+    });
+    actionCell.appendChild(deleteButton);
+    row.appendChild(actionCell);
+
     tableBody.appendChild(row);
   });
 }
 
+function deleteSighting(id) {
+  const remaining = getSightings().filter(function (sighting) {
+    return sighting.id !== id;
+  });
+  saveSightings(remaining);
+  showSightings();
+}
 if (tableBody) {
   showSightings();
 }

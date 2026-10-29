@@ -53,3 +53,30 @@ button {
 button:hover {
   background-color: #1b5e20;
 }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  margin-top: 12px;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #e8f5e9;
+}
+
+tr:hover td {
+  background-color: #f1f8e9;
+}
+
+#search {
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
